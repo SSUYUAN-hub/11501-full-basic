@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>選擇結構練習</title>
+    <title>綜合練習</title>
     <style>
         body {
             background: linear-gradient(135deg, #0f2027, #2c5364 80%);
@@ -60,51 +60,81 @@
     </style>
 </head>
 <body>
-
-    <div class="container">
-        <h1>選擇結構練習1</h1>
-        <div class="output">
-        <?php
-        $score = 75;
-        echo '成績為：' .$score . "分";
-        echo "<br>";
-        echo "判定為：";
-        if($score >= 60) {
-            echo "及格";
-        } else {
-            echo "不及格";
-        }
-        ?>
-        </div>
-        <h1>選擇結構練習2</h1>
-        <div class="output">
-        <?php
-        $score = 85;
-        $status =($score>=60) ? '及格':  '不及格';
-        echo '成績為：' . $score . '分' . "<br>" . "判定為：" . $status;
-        ?>
-        </div>
-        <h1>多選結構練習</h1>
-        <div class="output">
-        <?php
+    
+    <?php
+    $score = 80;
+    $level = '';
+    if ($score < 0 || $score > 100) {
+        echo "成績輸入錯誤";
+    } else if ($score < 60) {
+        $level = 'E';
+    } else if ($score < 70) {
+        $level = 'D';
+    } else if ($score < 80) {
+        $level = 'C';
+    } else if ($score < 90) {
         $level = 'B';
-        echo '成績等級為：' . $level . "<br>";
-        echo '判定為：';
+    } else if ($score <= 100) {
+        $level = 'A';
+    } 
+    if ($level !== '') {
+        echo '成績為:' . $score . '分' . "<br>" . "評定等級為:" . $level . "等級";
+    }
+
+    switch($level){
+    case 'A':
+        echo "表現優良，請繼續保持";
+    break;
+    case 'B':
+        echo '值得肯定，還有進步空間';
+    break;
+    case 'C':
+        echo '需要更多的練習';
+    break;
+    case 'D':
+        echo '需要加強基本功';
+    break;
+    default:
+        echo '是否無心學業?';
+}
+    <div class="container">
+        <h1>綜合練習</h1>
+        <div class="output">
+        <?php
+        $score = 80;
+        $level = '';
+        if ($score < 0 || $score > 100) {
+            echo "成績輸入錯誤";
+        } else if ($score < 60) {
+            $level = 'E';
+        } else if ($score < 70) {
+            $level = 'D';
+        } else if ($score < 80) {
+            $level = 'C';
+        } else if ($score < 90) {
+            $level = 'B';
+        } else if ($score <= 100) {
+            $level = 'A';
+        }
+        if ($level !== '') {
+            echo '成績為:' . $score . '分' . "<br>" . "評定等級為:" . $level . "等級";
+        }
+
         switch($level){
-            case 'A':
-                echo "表現優良，請繼續保持";
-            break;
-            case 'B':
-                echo '值得肯定，還有進步空間';
-            break;
-            case 'C':
-                echo '需要更多的練習';
-            break;
-            case 'D':
-                echo '需要加強基本功';
-            break;
-            default:
-                echo '是否無心學業?';
+        case 'A':
+            echo "<br>表現優良，請繼續保持";
+        break;
+        case 'B':
+            echo '<br>值得肯定，還有進步空間';
+        break;
+        case 'C':
+            echo '<br>需要更多的練習';
+        break;
+        case 'D':
+            echo '<br>需要加強基本功';
+        break;
+        default:
+            echo '<br>是否無心學業?';
         }
         ?>
         </div>
@@ -125,5 +155,3 @@
             btn.style.background = '';
         });
     </script>
-</body>
-</html>

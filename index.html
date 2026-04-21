@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>程式基礎練習</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f2027, #2c5364 80%);
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        ul {
+            background: rgba(30, 40, 60, 0.85);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            padding: 32px 40px;
+            list-style: none;
+            border: 1.5px solid rgba(255,255,255,0.08);
+        }
+        li {
+            margin: 18px 0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        li:hover {
+            transform: scale(1.04);
+            box-shadow: 0 0 16px #00ffe7a0;
+        }
+        a {
+            color: #00ffe7;
+            text-decoration: none;
+            font-size: 1.25rem;
+            letter-spacing: 1px;
+            padding: 10px 24px;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #232526 60%, #00ffe7 100%);
+            box-shadow: 0 2px 8px #00ffe733;
+            transition: background 0.3s, color 0.3s, box-shadow 0.2s;
+            display: inline-block;
+        }
+        a:hover {
+            background: linear-gradient(90deg, #00ffe7 0%, #232526 100%);
+            color: #232526;
+            box-shadow: 0 0 24px #00ffe7cc;
+        }
+        h1 {
+            color: #00ffe7;
+            text-shadow: 0 0 12px #00ffe7cc, 0 2px 8px #232526;
+            font-size: 2.2rem;
+            margin-bottom: 32px;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>程式基礎練習</h1>
+    <ul id="main-list">
+        <li>
+            <a href="01-basic.php">01.程式基礎概念-變數、資料型態、運算子</a>
+        </li>
+        <li>
+            <a href="02-select.php">02.流程控制-條件判斷、迴圈</a>
+        </li>
+        <li>
+            <a href="03-forloop.php">03.for loop 迴圈</a>
+        </li>
+        <li>
+            <a href="04-part01.php">04.綜合練習</a>
+        </li>
+    </ul>
+    <script>
+        // 簡單的科技感互動：滑鼠移到連結時，產生光暈動畫
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('mousemove', e => {
+                const rect = link.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                link.style.boxShadow = `0 0 24px 6px #00ffe7cc, 0 0 0 0 #fff0`;
+                link.style.background = `radial-gradient(circle at ${x}px ${y}px, #00ffe7 40%, #232526 100%)`;
+            });
+            link.addEventListener('mouseleave', () => {
+                link.style.boxShadow = '';
+                link.style.background = '';
+            });
+        });
+    </script>
+</body>
+</html>
