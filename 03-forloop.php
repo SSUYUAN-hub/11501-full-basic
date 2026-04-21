@@ -55,6 +55,13 @@ $count = $count + 1;
 echo "登錄成績為" .$score ."分". "<br>" . "共登錄了" . $count . "次";
 ?>
 
+<h1>foreach練習</h1>
+<?php
+$score=[10,20,30,40,50,60];
+foreach($score as $idx => $val){
+    echo '第'.($idx+1).'次成績為:' .$val."<br>";
+}
+?>
 <P>&nbsp</P>
 <P>&nbsp</P>
 <P>&nbsp</P>
