@@ -67,15 +67,16 @@
 </head>
 
 <body>
-    <h1>重複結構練習</h1>
 
-    <?php
-    for ($i = 1; $i <= 10; $i = $i + 1) {
-        echo "$i=>";
-        echo $i * 10 . "<br>";
-    }
-    ?>
     <div class="container">
+        <h1>重複結構練習</h1>
+
+        <?php
+        for ($i = 1; $i <= 10; $i = $i + 1) {
+            echo "$i=>";
+            echo $i * 10 . "<br>";
+        }
+        ?>
         <h1>重複結構練習 遞增2</h1>
         <?php
         for ($i = 1; $i <= 10; $i = $i + 2) {

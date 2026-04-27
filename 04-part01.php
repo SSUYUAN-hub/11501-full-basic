@@ -67,44 +67,6 @@
 </head>
 
 <body>
-
-    <?php
-    $score = 80;
-    $level = '';
-    if ($score < 0 || $score > 100) {
-        echo "成績輸入錯誤";
-    } else if ($score < 60) {
-        $level = 'E';
-    } else if ($score < 70) {
-        $level = 'D';
-    } else if ($score < 80) {
-        $level = 'C';
-    } else if ($score < 90) {
-        $level = 'B';
-    } else if ($score <= 100) {
-        $level = 'A';
-    } 
-    if ($level !== '') {
-        echo '成績為:' . $score . '分' . "<br>" . "評定等級為:" . $level . "等級";
-    }
-
-    switch($level){
-    case 'A':
-        echo "表現優良，請繼續保持";
-    break;
-    case 'B':
-        echo '值得肯定，還有進步空間';
-    break;
-    case 'C':
-        echo '需要更多的練習';
-    break;
-    case 'D':
-        echo '需要加強基本功';
-    break;
-    default:
-        echo '是否無心學業?';
-}
-?>
     <div class="container">
         <h1>綜合練習</h1>
         <div class="output">
