@@ -5,56 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>程式基礎練習</title>
     <style>
-        body {
-            background: linear-gradient(135deg, #0f2027, #2c5364 80%);
-            min-height: 100vh;
+        * {
             margin: 0;
-            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
-            color: #e0e0e0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8f4f8 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', 'Roboto', 'Noto Sans TC', Arial, sans-serif;
+            color: #2c3e50;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-        }
-        ul {
-            background: rgba(30, 40, 60, 0.85);
-            border-radius: 18px;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            padding: 32px 40px;
-            list-style: none;
-            border: 1.5px solid rgba(255,255,255,0.08);
-        }
-        li {
-            margin: 18px 0;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        li:hover {
-            transform: scale(1.04);
-            box-shadow: 0 0 16px #00ffe7a0;
-        }
-        a {
-            color: #00ffe7;
-            text-decoration: none;
-            font-size: 1.25rem;
-            letter-spacing: 1px;
-            padding: 10px 24px;
-            border-radius: 8px;
-            background: linear-gradient(90deg, #232526 60%, #00ffe7 100%);
-            box-shadow: 0 2px 8px #00ffe733;
-            transition: background 0.3s, color 0.3s, box-shadow 0.2s;
-            display: inline-block;
-        }
-        a:hover {
-            background: linear-gradient(90deg, #00ffe7 0%, #232526 100%);
-            color: #232526;
-            box-shadow: 0 0 24px #00ffe7cc;
+            padding: 40px 20px;
         }
         h1 {
-            color: #00ffe7;
-            text-shadow: 0 0 12px #00ffe7cc, 0 2px 8px #232526;
-            font-size: 2.2rem;
-            margin-bottom: 32px;
-            letter-spacing: 2px;
+            color: #0090da;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            text-shadow: 0 2px 8px rgba(0, 144, 218, 0.1);
+        }
+        ul {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 144, 218, 0.15);
+            padding: 40px;
+            list-style: none;
+            border: 2px solid #e0f2f7;
+            max-width: 600px;
+            backdrop-filter: blur(10px);
+        }
+        li {
+            margin: 16px 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        li:hover {
+            transform: translateX(8px);
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            padding: 12px 28px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #0090da 0%, #00b4d8 100%);
+            box-shadow: 0 4px 15px rgba(0, 144, 218, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+            font-weight: 500;
+        }
+        a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 144, 218, 0.5);
+            background: linear-gradient(135deg, #00b4d8 0%, #00d4ff 100%);
+        }
+        a:active {
+            transform: translateY(-1px);
         }
     </style>
 </head>
@@ -88,20 +99,33 @@
         <li>
             <a href="09-parts06.php">09.綜合練習六-星星幾何圖</a>
         </li>
+        <li>
+            <a href="10-parts07.php">10.綜合練習七-陣列</a>
+        </li>
+        <li>
+            <a href="11-parts08.php">11.綜合練習八-陣列九九乘法表</a>
+        </li>
+        <li>
+            <a href="12-parts09.php">12.綜合練習九-威力彩電腦選號</a>
+        </li>
+        <li>
+            <a href="13-parts10.php">13.綜合練習九-五百年內的閏年</a>
+        </li>
+        <li>
+            <a href="14-parts11.php">14.綜合練習九-天干地支年別</a>
+        </li>
+        <li>
+            <a href="15-parts12.php">15.綜合練習九-反轉陣列</a>
+        </li>
     </ul>
     <script>
-        // 簡單的科技感互動：滑鼠移到連結時，產生光暈動畫
+        // 簡單的科技感互動效果
         document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('mousemove', e => {
-                const rect = link.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                link.style.boxShadow = `0 0 24px 6px #00ffe7cc, 0 0 0 0 #fff0`;
-                link.style.background = `radial-gradient(circle at ${x}px ${y}px, #00ffe7 40%, #232526 100%)`;
+            link.addEventListener('mouseenter', () => {
+                link.style.boxShadow = '0 12px 35px rgba(0, 144, 218, 0.6)';
             });
             link.addEventListener('mouseleave', () => {
-                link.style.boxShadow = '';
-                link.style.background = '';
+                link.style.boxShadow = '0 4px 15px rgba(0, 144, 218, 0.3)';
             });
         });
     </script>

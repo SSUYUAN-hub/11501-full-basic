@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>九九乘法表</title>
+    <title>Document</title>
     <style>
         * {
             margin: 0;
@@ -27,41 +28,39 @@
             border: 2px solid #e0f2f7;
             backdrop-filter: blur(10px);
         }
-        h2 {
+        h1 {
             color: #0090da;
             font-size: 2rem;
             margin-bottom: 30px;
             text-align: center;
             font-weight: 600;
         }
-        .table-wrapper {
-            margin: 30px 0;
-            overflow-x: auto;
-        }
-        .table1 {
+        table {
             border-collapse: collapse;
             width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-            border: 2px solid #e0f2f7;
+            margin: 30px auto;
+            background: white;
             box-shadow: 0 4px 12px rgba(0, 144, 218, 0.1);
         }
-        .table1 td {
-            border: 1px solid #d0e8f2;
-            padding: 12px 16px;
+        td {
+            border: 2px solid #d0e8f2;
+            padding: 14px 16px;
             text-align: center;
-            color: #2c3e50;
             background: linear-gradient(135deg, #f0f8ff 0%, #f5fbff 100%);
+            color: #2c3e50;
             font-weight: 500;
         }
-        .table1 tr:hover td {
+        tr:hover td {
             background: linear-gradient(135deg, #e0f2f7 0%, #e8f8ff 100%);
             color: #0090da;
         }
-        hr {
-            margin: 40px 0;
-            border: none;
-            border-top: 2px solid #e0f2f7;
+        pre {
+            background: linear-gradient(135deg, #f0f8ff 0%, #f0f4ff 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #0090da;
+            overflow-x: auto;
+            color: #1a3a52;
         }
         .back-btn {
             display: block;
@@ -84,81 +83,40 @@
         }
     </style>
 </head>
+
 <body>
-<div class="container">
- <h2>九九乘法表</h2>
- <div class="table-wrapper">
-<table class="table1">
-<?php
-for($j=1; $j<=9; $j++){
-
-echo "<tr>";
-for($i=1; $i<=9; $i++){
-    echo "<td>";
- echo $i." x "."$j"." = ".($i*$j). "";
-}echo"</td>";
-echo "</tr>";
-}
-?>
-</table>
-</div>
-
-<hr>
-
-<div class="table-wrapper">
-<?php
-echo "<table class='table1'>";
-for($j=1; $j<=9; $j++){
-echo "<tr>";
-for($i=1; $i<=9; $i++){
-    echo "<td>";
- echo $i." x "."$j"." = ".($i*$j). "";
-}echo"</td>";
-echo "</tr>";
-}
-echo "</table>";
-?>
-</div>
-
-<hr>
-<div class="table-wrapper">
-<?php
-echo "<table class='table1'>";
-
-// --- 第一部分：處理水平標頭 (Top Row) ---
-echo "<tr style='background: linear-gradient(135deg, #0090da 0%, #00b4d8 100%); color: white;'>";
-echo "<td style='color: white;'> </td>"; // 左上角空格
-for ($h = 1; $h <= 9; $h++) {
-    echo "<td style='color: white;'>$h</td>";
-}
-echo "</tr>";
-
-// --- 第二部分：處理九九乘法內容 ---
-// 修正點：加上 $j = 1
-for ($j = 1; $j <= 9; $j++) {
-    echo "<tr>";
-    
-    // 垂直標頭（左側第一欄）
-    echo "<td style='background: linear-gradient(135deg, #0090da 0%, #00b4d8 100%); color: white; width: 30px; font-weight: 600;'>$j</td>";
-    
+    <div class="container">
+        <h1>陣列九九乘法表</h1>
+    <?php
+    $nine = [];
+    echo "<pre>";
     for ($i = 1; $i <= 9; $i++) {
-        echo "<td style='padding: 8px;'>";
-        if($i<=$j){
-        // 這裡就是交叉計算的結果
-        echo ($i * $j); 
-        // 如果你還是想要印出 "1 x 1 = 1"，就用原本的寫法：
-        // echo $i . " x " . $j . " = " . ($i * $j);
-        echo "</td>"; 
+        for ($j = 1; $j <= 9; $j++) {
+            $nine[] = "$i x $j = " . ($i * $j);
+        }
     }
-    else echo "";}
-    echo "</tr>";
-}
 
-echo "</table>";
-?>
-</div>
 
-<button class="back-btn" onclick="history.back()">返回上一頁</button>
-</div>
+
+
+    ?>
+    <table>
+        <tr>
+            <?php
+
+            foreach ($nine as $id => $item) {
+                if ($id > 0 && $id % 9 == 0) {
+                    echo "</tr><tr><td>$item</td>";
+                } else {
+                    echo "<td>$item</td>";
+                }
+            }
+            echo "</table>";
+            echo "</pre>";
+            ?>
+        <button class="back-btn" onclick="history.back()">返回上一頁</button>
+    </div>
 </body>
+</body>
+
 </html>

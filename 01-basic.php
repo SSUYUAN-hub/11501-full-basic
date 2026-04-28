@@ -5,56 +5,72 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>程式基礎概念-變數、資料型態、運算子</title>
 	<style>
-		body {
-			background: linear-gradient(135deg, #0f2027, #2c5364 80%);
-			min-height: 100vh;
+		* {
 			margin: 0;
-			font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
-			color: #e0e0e0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body {
+			background: linear-gradient(135deg, #f8f9fa 0%, #e8f4f8 100%);
+			min-height: 100vh;
+			font-family: 'Segoe UI', 'Roboto', 'Noto Sans TC', Arial, sans-serif;
+			color: #2c3e50;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
+			padding: 40px 20px;
 		}
 		.container {
-			background: rgba(30, 40, 60, 0.85);
-			border-radius: 18px;
-			box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-			padding: 32px 40px;
-			border: 1.5px solid rgba(255,255,255,0.08);
+			background: rgba(255, 255, 255, 0.95);
+			border-radius: 16px;
+			box-shadow: 0 10px 40px rgba(0, 144, 218, 0.15);
+			padding: 40px;
+			border: 2px solid #e0f2f7;
 			min-width: 320px;
+			max-width: 600px;
+			backdrop-filter: blur(10px);
 		}
 		h1 {
-			color: #00ffe7;
-			text-shadow: 0 0 12px #00ffe7cc, 0 2px 8px #232526;
-			font-size: 2rem;
-			margin-bottom: 24px;
-			letter-spacing: 2px;
+			color: #0090da;
+			font-size: 1.8rem;
+			margin-bottom: 30px;
+			letter-spacing: 0.5px;
 			text-align: center;
+			font-weight: 600;
 		}
 		.output {
-			font-size: 1.1rem;
-			margin-bottom: 24px;
-			line-height: 1.7;
+			font-size: 1.05rem;
+			margin-bottom: 30px;
+			line-height: 1.8;
 			word-break: break-all;
+			background: linear-gradient(135deg, #f0f8ff 0%, #f0f4ff 100%);
+			padding: 20px;
+			border-radius: 10px;
+			border-left: 4px solid #0090da;
+			color: #1a3a52;
 		}
 		.back-btn {
 			display: block;
 			margin: 0 auto;
-			padding: 10px 28px;
-			background: linear-gradient(90deg, #232526 60%, #00ffe7 100%);
-			color: #232526;
+			padding: 12px 32px;
+			background: linear-gradient(135deg, #0090da 0%, #00b4d8 100%);
+			color: #fff;
 			border: none;
-			border-radius: 8px;
-			font-size: 1.1rem;
+			border-radius: 10px;
+			font-size: 1rem;
 			cursor: pointer;
-			box-shadow: 0 2px 8px #00ffe733;
-			transition: background 0.3s, color 0.3s, box-shadow 0.2s;
+			box-shadow: 0 4px 15px rgba(0, 144, 218, 0.3);
+			transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+			font-weight: 500;
 		}
 		.back-btn:hover {
-			background: linear-gradient(90deg, #00ffe7 0%, #232526 100%);
-			color: #00ffe7;
-			box-shadow: 0 0 24px #00ffe7cc;
+			transform: translateY(-3px);
+			box-shadow: 0 8px 25px rgba(0, 144, 218, 0.5);
+			background: linear-gradient(135deg, #00b4d8 0%, #00d4ff 100%);
+		}
+		.back-btn:active {
+			transform: translateY(-1px);
 		}
 	</style>
 </head>
@@ -82,17 +98,14 @@
 	<script>
 		// 返回按鈕 hover 動畫
 		const btn = document.querySelector('.back-btn');
-		btn.addEventListener('mousemove', e => {
-			const rect = btn.getBoundingClientRect();
-			const x = e.clientX - rect.left;
-			const y = e.clientY - rect.top;
-			btn.style.boxShadow = `0 0 24px 6px #00ffe7cc, 0 0 0 0 #fff0`;
-			btn.style.background = `radial-gradient(circle at ${x}px ${y}px, #00ffe7 40%, #232526 100%)`;
-		});
-		btn.addEventListener('mouseleave', () => {
-			btn.style.boxShadow = '';
-			btn.style.background = '';
-		});
+		if (btn) {
+			btn.addEventListener('mouseenter', () => {
+				btn.style.boxShadow = '0 8px 25px rgba(0, 144, 218, 0.5)';
+			});
+			btn.addEventListener('mouseleave', () => {
+				btn.style.boxShadow = '0 4px 15px rgba(0, 144, 218, 0.3)';
+			});
+		}
 	</script>
 </body>
 </html>
